@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @newbook = Book.new
+    @book = Book.new
   end
 
   def index
