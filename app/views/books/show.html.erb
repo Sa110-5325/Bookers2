@@ -50,7 +50,7 @@
 			      <div class="comments">
               <td>コメント件数：<%= @book.book_comments.count %></td>
               <% @book.book_comments.each do |book_comment| %>
-                <td><%= image_tag('no_image.jpg') %></td>
+                <%= attachment_image_tag @book_comments_user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size: "40x50" %>
                 <%= book_comment.user.name %>
                 <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
                 <% if book_comment.user == current_user %>

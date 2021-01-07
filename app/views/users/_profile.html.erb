@@ -1,5 +1,4 @@
-<div class="row">
-  <% user = current_user if user.nil? %>
+	 <% user = current_user if user.nil? %>
 		<table class="table">
 		  <tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
 			<tr>
@@ -19,21 +18,20 @@
 	    	<th><%= link_to user.followers.count, followers_user_path(user) %></th>
 	  	</tr>
 		</table>
-		<div class='row'>
 		  <% unless current_user == user %>
 		  <% if current_user.following?(user) %>
 		    <%= form_for(Relationship.find_by(user_id: current_user.id, follow_id: user.id), method: :delete) do |f| %>
 		    <%= f.hidden_field :follow_id, value: user.id %>
-		    <%= f.submit 'フォローを外す' %>
+		    <%= f.submit 'フォローを外す',class: "col-sm-12 btn btn-warning" %>
 		  <% end %>
 		  <% else %>
 		    <%= form_for(Relationship.new(user_id: current_user.id, follow_id: user.id), method: :post) do |f| %>
 		    <%= f.hidden_field :follow_id, value: user.id %>
-		    <%= f.submit 'フォローする' %>
+		    <%= f.submit 'フォローする',class: "col-sm-12 btn btn-primary" %>
 		    <% end %>
 			<% end %>
+			<% end %><br />
 			<%= link_to '',edit_user_path(user), class: "col-sm-12 btn btn-outline-secondary btn-block fas fa-user-cog  edit_user_#{user.id}" %>
-			<% end %>
-  </div>
-</div>
+
+
 

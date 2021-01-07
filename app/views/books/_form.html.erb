@@ -1,16 +1,13 @@
-
 <%= form_with model:book, local:true do |f| %>
 	<div>
 		<%= f.label :title %>
 		<%= f.text_field :title, class: "col-sm-12 book_title" %>
 	</div>
-
 	<div>
 		<%= f.label :opinion %>
 		<%= f.text_area :body, class: "col-sm-12 book_body" %>
-	</div>
-
+	</div><br />
 	<div>
-		<%= f.submit 'Create Book', class: "btn btn-sm btn-success col-sm-6" %>
+		<%= f.submit 'Create Book', class: "btn btn-sm btn-success col-sm-12" %>
 	</div>
 <% end %>

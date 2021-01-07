@@ -9,9 +9,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
     @newbook = Book.new
     @book = Book.new
+    @users = User.search("title", params[:model], params[:content])
   end
 
   def edit
