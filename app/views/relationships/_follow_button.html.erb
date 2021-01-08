@@ -2,12 +2,12 @@
   <% if current_user.following?(user) %>
     <%= form_for(Relationship.find_by(user_id: current_user.id, follow_id: user.id), method: :delete) do |f| %>
     <%= f.hidden_field :follow_id, value: user.id %>
-    <%= f.submit 'フォローを外す' %>
+    <%= f.submit('フォローを外す', class: 'btn btn-danger btn-sm') %>
   <% end %>
   <% else %>
     <%= form_for(Relationship.new(user_id: current_user.id, follow_id: user.id), method: :post) do |f| %>
     <%= f.hidden_field :follow_id, value: user.id %>
-    <%= f.submit 'フォローする' %>
+    <%= f.submit 'フォローする', class: 'btn btn-info btn-sm' %>
     <% end %>
   <% end %>
 <% end %>
